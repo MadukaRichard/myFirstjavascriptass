@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+        body{
+            background: linear-gradient(90deg, blue,purple );
+        }
+        .main-div{
+            width: 1000px;
+            display: grid;
+            grid-template-columns: repeat(2,auto);
+            gap: 1em;
+            background-color: rgba(27,27,27,0.3);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 20;
+            margin: 5em auto;
+            padding: 1em;
+            color: white;
+            border-radius: 15px;
+        }
+        .left h1{
+            font-size: .8em;
+        }
+        .left{
+            margin: 0 auto;
+            padding: 0 1em 0 1em;
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+        }
+        .left input{
+            padding: 1em;
+            outline: 0;
+            border: 0;
+            border-radius: 20px;
+            font-size: 1.2em;
+            background-color: transparent;
+            color: white;
+            width: 400px; 
+            box-shadow: 10px 5px 10px 10px rgba(27, 27, 27, 0.2);
+        }
+        .right{
+            padding: 0 1em 1em 1em;
+        }
+        .right h1,p{
+            font-size: .8em;
+        }
+        .right p{
+            padding: .5em 0 .5em 0;
+        }
+        button{
+            border: 0;
+            background-color: blue;
+            color: white;
+            padding: .5em 1em .5em 1em;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+   <div class="main-div">
+      <div class="left">
+         <h1>This will autocorrect the word "HATE" and change it to "LOVE"</h1>
+         <input type="text"  id="Richard" onkeyup="clean('Richard')">
+      </div>
+      <div class="right">
+        <h1>
+            This will autocorrect the word "HATE" and change it to "LOVE" when you click on the button below.
+        </h1>
+        <p id="Richard2"></p>
+        <button onclick="myFunction()">Click me!</button>
+      </div>
+  </div>
+    
+</body>
+<script>
+    function clean(LEFT){
+        var textfield = document.getElementById(LEFT);
+        var dhukar = /hate/gi;
+        textfield.value= textfield.value.replace(dhukar, "love");
+
+    }
+    let boss = "I hate Javascript with passion, I sincerely hate it with passion again";
+        document.getElementById('Richard2').innerHTML =boss 
+    function myFunction(){
+        document.getElementById('Richard2').innerHTML = boss.replaceAll("hate","love");
+    }
+</script>
+</html>
