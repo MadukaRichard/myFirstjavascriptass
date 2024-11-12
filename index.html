@@ -3,97 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Area of a triangle</title>
+    <link rel="stylesheet" href="bootstrap-5.3.3-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap-5.3.3-dist/js/bootstrap.bundle.js">
     <style>
-        *{
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-            font-family: "Poppins", sans-serif;
-        }
         body{
-            background: linear-gradient(90deg, blue,purple );
+            background-color: rgba(186, 231, 248, 0.4);
         }
-        .main-div{
-            width: 1000px;
-            display: grid;
-            grid-template-columns: repeat(2,auto);
-            gap: 1em;
-            background-color: rgba(27,27,27,0.3);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            z-index: 20;
-            margin: 5em auto;
-            padding: 1em;
+        .soft{
+            background: linear-gradient(140deg, blue, lightblue);
+            color: white;  
+        }
+        .button{
+            background: linear-gradient(140deg, lightblue, blue);
             color: white;
-            border-radius: 15px;
-        }
-        .left h1{
-            font-size: .8em;
-        }
-        .left{
-            margin: 0 auto;
-            padding: 0 1em 0 1em;
-            display: flex;
-            flex-direction: column;
-            gap: 1em;
-        }
-        .left input{
-            padding: 1em;
-            outline: 0;
             border: 0;
-            border-radius: 20px;
-            font-size: 1.2em;
-            background-color: transparent;
-            color: white;
-            width: 400px; 
-            box-shadow: 10px 5px 10px 10px rgba(27, 27, 27, 0.2);
+            border-radius: 5px;
         }
-        .right{
-            padding: 0 1em 1em 1em;
-        }
-        .right h1,p{
-            font-size: .8em;
-        }
-        .right p{
-            padding: .5em 0 .5em 0;
-        }
-        button{
-            border: 0;
-            background-color: blue;
-            color: white;
-            padding: .5em 1em .5em 1em;
-            border-radius: 10px;
-        }
+        
     </style>
 </head>
 <body>
-   <div class="main-div">
-      <div class="left">
-         <h1>This will autocorrect the word "HATE" and change it to "LOVE"</h1>
-         <input type="text"  id="Richard" onkeyup="clean('Richard')">
-      </div>
-      <div class="right">
-        <h1>
-            This will autocorrect the word "HATE" and change it to "LOVE" when you click on the button below.
-        </h1>
-        <p id="Richard2"></p>
-        <button onclick="myFunction()">Click me!</button>
-      </div>
-  </div>
-    
+    <div class="w-25 rounded p-3 m-auto shadow soft">
+        <h1>A script to find the area of a triangle.</h1>
+        <div>
+            <p>Enter Base:<input type="number" class="form-control mt-3 base" placeholder="Enter base in cm" id="BASE"></p>
+            <p>Enter Height:<input type="number" class="form-control mt-3 height" placeholder="Enter height in cm" id="HEIGHT"></p>
+            <button onclick="triangleArea()" class="button">Find Area</button>
+        </div>
+        <div id="result" ></div>
+    </div>
 </body>
 <script>
-    function clean(LEFT){
-        var textfield = document.getElementById(LEFT);
-        var dhukar = /hate/gi;
-        textfield.value= textfield.value.replace(dhukar, "love");
+    // let myValue = prompt ('Enter base:' , 'in cm');
+    // let myValue2 = prompt('Enter height:', 'in cm');
+    // alert(`The area of the triangle is: ${myValue2}`);
+function triangleArea() {
+    let base = document.getElementById('BASE').value;
+    let height = document.getElementById('HEIGHT').value;
+    let success = document.getElementById('result').innerHTML = (`The Area of the triangle is: ${0.5*base*height}`);
+    console.log(success);
 
-    }
-    let boss = "I hate Javascript with passion, I sincerely hate it with passion again";
-        document.getElementById('Richard2').innerHTML =boss 
-    function myFunction(){
-        document.getElementById('Richard2').innerHTML = boss.replaceAll("hate","love");
-    }
+}
+
+
 </script>
 </html>
